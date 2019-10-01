@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+
+{% endblock %}
+{% block content %}
+
+    <pre>
+
+      Welcome on my awesome App.
+      Upload new dump file.
+
+      WARNING: While performing this operation old data will be lost!
+
+
+      <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+            <input type=file name=thefile>
+            <input type=submit value=Upload>
+      </form>
+
+    </pre>
+
+{% endblock %}

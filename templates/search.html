@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+
+{% endblock %}
+{% block content %}
+
+    <pre>
+
+        Database were successfully imported !
+        OK, now proceed to begin string search ...
+    </pre>
+
+    <form action="{{ url_for('search') }}" method="POST" enctype="application/x-www-form-urlencoded" method="post">
+        <p>
+            <label for="thetable" form="tables">Tables:</label>
+            <select name="thetable">
+                    {% for thetable in content.split() %}
+                          <option value={{ thetable }}>{{ thetable }}</option>
+                    {% endfor %}
+            </select>
+        </p>
+
+        <p>
+            <label for="thestring">Enter your search string</label>
+            <input type="text" name="thestring">
+
+            <input type="submit" value="Search it!">
+        </p>
+    </form>
+
+    </pre>
+
+{% endblock %}
